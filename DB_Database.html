@@ -29,7 +29,7 @@ with index file supported.</TITLE>
 	</UL>
 
 	<LI><A HREF="#bugs">BUGS</A></LI>
-	<LI><A HREF="#data types">DATA TYPES</A></LI>
+	<LI><A HREF="#internal data types">INTERNAL DATA TYPES</A></LI>
 	<LI><A HREF="#locking">LOCKING</A></LI>
 	<LI><A HREF="#version">VERSION</A></LI>
 	<LI><A HREF="#author">AUTHOR</A></LI>
@@ -335,7 +335,7 @@ or something strange will happed.</P>
 <P>if you found any bugs or make any patches, I would be appriciate to hear from you.</P>
 <P>
 <HR>
-<H1><A NAME="data types">DATA TYPES</A></H1>
+<H1><A NAME="internal data types">INTERNAL DATA TYPES</A></H1>
 <P>Use <CODE>DB_File(DB_HASH)</CODE> to store data (key/value pairs). Value use a CSV (comma separated
  text) to store a list. No character limits. DB_File::DB_Database do NOT need TEXT::CSV or TEXT::CSV_XS. 
  but you can easily changed it to that modules.</P>
@@ -343,17 +343,18 @@ or something strange will happed.</P>
 <P>
 <HR>
 <H1><A NAME="locking">LOCKING</A></H1>
-<P>The locking is a poor. Every opened file has a '_lock' file(non Windows). But No locking is done.
-No extra locking in Windows.</P>
+<P>The locking function is a poor. Every opened file has a '_lock' file(non Windows), No 
+locking is done in Windows. </P>
+<P>But to add a locking only need to modify database_lock and database_unlock.</P>
 <P>
 <HR>
 <H1><A NAME="version">VERSION</A></H1>
-<P>0.03</P>
-<P>publish time: 2001.05.16</P>
+<P>0.031</P>
+<P>publish time: 2001.10.22</P>
 <P>
 <HR>
 <H1><A NAME="author">AUTHOR</A></H1>
-<P>(c) 2001 冉宁煜 / Ran Ningyu, &lt;<A HREF="mailto:rny@163.net">rny@163.net</A>&gt; <A HREF="http://perl.yesky.net/">http://perl.yesky.net/</A> or <A HREF="http://www.skybamboo.com/perl/">http://www.skybamboo.com/perl/</A> 
+<P>(c) 2001 冉宁煜 / Ran Ningyu, &lt;<A HREF="mailto:rny@yahoo.com.cn">rny@yahoo.com.cn</A>&gt; <A HREF="http://perl.yesky.net/">http://perl.yesky.net/</A> or <A HREF="http://www.skybamboo.com/perl/">http://www.skybamboo.com/perl/</A> 
 at SouthEast University, Nanjing, China.</P>
 <P>All rights reserved. This package is free software; you can redistribute it and/or modify it 
 under the same terms as Perl itself.</P>

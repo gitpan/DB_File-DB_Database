@@ -10,7 +10,8 @@ if ($ENV{'GATEWAY_INTERFACE'}) {
  print $query->header(-type=>'text/plain');
 }
 
-print "Basically create/open/close/drop test: 1..6\n";
+print "1..6\n";
+#print "Basically create/open/close/drop test: 1..6\n";
 
 print "Load the module: use DB_File::DB_Database\n";
 eval 'use DB_File::DB_Database';
@@ -20,8 +21,8 @@ if ($@ ne '') {
 }
 
 my $loaded = 1;
-END	{ print "not ok 1\n" unless $loaded; }
-print "ok 1\n";
+END	{ print "not ok\n" unless $loaded; }
+print "ok\n";
 print "This is DB_File::DB_Database version $DB_File::DB_Database::VERSION\n";
 my $dir = ( -d "t" ? "t" : "." );
 my @files = <$dir/dbtest1*>;
@@ -39,20 +40,20 @@ my $newtable = DB_File::DB_Database->create(     "name"        => "$dir/dbtest1"
                                         "field_types" => [ "C",    "c",    "N",     "C"   ],
                                         'permits'     => 0640 );
 print DB_File::DB_Database->errstr(), 'not ' unless defined $newtable;
-print "ok 2\n";
+print "ok\n";
 exit unless defined $newtable;     # It doesn't make sense to continue here ;-)
 
 # 3 #############################################################
 print "Close DB_File::DB_Database file\n";
 $newtable->close;
 print DB_File::DB_Database->errstr(), 'not ' unless defined $newtable;
-print "ok 3\n";
+print "ok\n";
 
 # 4 #############################################################
 print "Open a existed DB_File::DB_Database file\n";
-my $table = new DB_File::DB_Database("dbtest1");
+my $table = new DB_File::DB_Database("$dir/dbtest1");
 print DB_File::DB_Database->errstr(), 'not ' unless defined $table;
-print "ok 4\n";
+print "ok\n";
 # 5 #############################################################
 print "Check for the fields definition\n";
 my @field_name = $table->field_names;
@@ -75,11 +76,11 @@ foreach $_ (0..@field_type-1) {
 		last;
 	}
 }
-print "ok 5\n";
+print "ok\n";
 
 # 6 #############################################################
 print "Drop the DB_File::DB_Database file\n";
 $table->NullError;
 $table->drop or print $table->errstr, 'not ';
-print "ok 6\n";
+print "ok\n";
 

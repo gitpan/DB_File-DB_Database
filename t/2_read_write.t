@@ -10,7 +10,8 @@ if ($ENV{'GATEWAY_INTERFACE'}) {
  print $query->header(-type=>'text/plain');
 }
 
-print "Read and Write test: 1..2\n";
+print "1..2\n";
+#print "Read and Write test: 1..2\n";
 
 print "Load the module: use DB_File::DB_Database\n";
 eval 'use DB_File::DB_Database';
@@ -46,14 +47,14 @@ my @result = $newtable->set_record("1", "Judy", "girl", "18", "SEU");
 print "Error writing data\n","not" if $result[0] ne "1";
 @result = $newtable->set_record("2", "Kite", "girl", "24", "MSU");
 print "Error writing data\n","not" if $result[0] ne "2";
-print "ok 1\n";
+print "ok\n";
 
 #   #############################################################
 $newtable->close;
 print DB_File::DB_Database->errstr(), 'Error Closing DB_File::DB_Database file' unless defined $newtable;
 
 #   #############################################################
-my $table = new DB_File::DB_Database("dbtest2");
+my $table = new DB_File::DB_Database("$dir/dbtest2");
 print DB_File::DB_Database->errstr(), 'not ' unless defined $table;
 
 # 2 #############################################################
@@ -68,7 +69,7 @@ foreach $_ (0..@data-1) {
 		last;
 	}
 }
-print "ok 2\n";
+print "ok\n";
 
 #   #############################################################
 $table->close;

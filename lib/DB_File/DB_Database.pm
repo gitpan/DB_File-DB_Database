@@ -18,7 +18,7 @@ use Fcntl qw( O_RDWR O_RDONLY LOCK_SH LOCK_EX LOCK_UN);
 # General things
 
 use vars qw( $VERSION $errstr @ISA );
-$VERSION = 0.03;
+$VERSION = 0.031;
 # Sets the debug level
 $DB_File::DB_Database::DEBUG = 0;
 BEGIN {
@@ -1323,7 +1323,7 @@ or something strange will happed.
 
 if you found any bugs or make any patches, I would be appriciate to hear from you.
 
-=head1 DATA TYPES
+=head1 INTERNAL DATA TYPES
 
 Use DB_File(DB_HASH) to store data (key/value pairs). Value use a CSV (comma separated
  text) to store a list. No character limits. DB_File::DB_Database do NOT need TEXT::CSV or TEXT::CSV_XS. 
@@ -1333,18 +1333,19 @@ Index files are stored as DB_File (DB_BTREE). Key is the text, value is the ID.
 
 =head1 LOCKING
 
-The locking is a poor. Every opened file has a '_lock' file(non Windows). But No locking is done.
-No extra locking in Windows. 
+The locking function is a poor. Every opened file has a '_lock' file(non Windows), No 
+locking is done in Windows. 
+But to add a locking only need to modify database_lock and database_unlock.
 
 =head1 VERSION
 
-0.03
+0.031
 
-publish time: 2001.05.16
+publish time: 2001.10.22
 
 =head1 AUTHOR
 
-(c) 2001 冉宁煜 / Ran Ningyu, <rny@163.net> http://perl.yesky.net/ or http://www.skybamboo.com/perl/ 
+(c) 2001 冉宁煜 / Ran Ningyu, <rny@yahoo.com.cn> http://perl.yesky.net/ or http://www.skybamboo.com/perl/ 
 at SouthEast University, Nanjing, China.
 
 All rights reserved. This package is free software; you can redistribute it and/or modify it 

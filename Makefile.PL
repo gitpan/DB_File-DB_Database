@@ -21,5 +21,5 @@ WriteMakefile(
     'AUTHOR'		=> 'Ran Ningyu (rny@163.net)',
     'ABSTRACT'		=> 'DB_File to MutiField Table with Index',
 		) : ()),
-#    'clean'		=> { FILES => 'bin/dbfdump bin/indexdump t/newtable.dbf t/newtable.dbt t/write.dbf t/write.dbt t/rooms1.dbf t/rooms1.cdx '},
+#    'clean'		=> { FILES => ''},
 );

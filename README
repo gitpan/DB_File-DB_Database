@@ -1,6 +1,6 @@
 
 		------------------------------------
-			DB_File::DB_Database 0.03
+			DB_File::DB_Database 0.031
 		------------------------------------
 
 This is the README file for the DB_File::DB_Database packages. Please read it 
@@ -47,11 +47,13 @@ If it works for you:
 
 
 Copyright: (c) 2001 Ran Ningyu, 
-	rny@163.net http://perl.yesky.net/ at SouthEast University, Nanjing, China.
+	rny@yahoo.com.cn http://perl.yesky.net/ at SouthEast University, Nanjing, China.
 	All rights reserved. This package is free software; you can redistribute
 	it and/or modify it under the same terms as Perl itself.
 
 History:
+
+0.031  2001.10.22: Fix test fail bug, thanks to Jörgen<jorgen@elfi.org>
 
 0.03   2001.05.14: Fix some tiny bugs, Perl -w could run
 
